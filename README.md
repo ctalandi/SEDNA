@@ -1,7 +1,7 @@
 # SEDNA-DELTA <br>
 This reprository hold : <br>
-  1 the NEMO code source (how to download it) as associated input files as well (code related input files hereafter namelists) and <br>
-  2 the list of other input files to describe the grid, the bathymetry and the surface forcing used to perform the numerical experiment called SEDNA-DELTA. <br>
+  1. the NEMO code source (how to download it) as associated input files as well (code related input files hereafter namelists) and <br>
+  2. the list of other input files to describe the grid, the bathymetry and the surface forcing used to perform the numerical experiment called SEDNA-DELTA. <br>
 
 ## OVERVIEW
 This SEDNA configuration has been developped within the ImMEDIAT project (French ANR funding). The project main purpose is to understand the role of ocean and sea ice small scale features in the Arctic. 
@@ -14,8 +14,8 @@ The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numer
 
 ### SOURCE CODE : 
    * The ocean/sea ice model: <br>
-	** The code source relies on the official NEMO release 4.0.5. Information can be found [there](https://forge.ipsl.jussieu.fr/nemo/chrome/site/doc/NEMO/guide/html/guide.html). 
-	*** The specific code source changes associated to this experiment are in the [MY_SRC](./NEMOGCM/cfgs/SEDNA-DELTA/MY_SRC) directory. The [arch](./NEMOGCM/arch) list the computing architecture file used to compile this configuration over the TGCC Rome partition.
+	** The code source relies on the official NEMO release 4.0.5. Information can be found [there](https://forge.ipsl.jussieu.fr/nemo/chrome/site/doc/NEMO/guide/html/guide.html).<br>
+	** The specific code source changes associated to this experiment are in the [MY_SRC](./NEMOGCM/cfgs/SEDNA-DELTA/MY_SRC) directory. The [arch](./NEMOGCM/arch) list the computing architecture file used to compile this configuration on the TGCC Rome partition.
    * The XIOS libray to perform outputs:<br>
 	** Outputs have been realised in using the XIOS 2.5 library; the revision 1920 has been downloaded and compiled. Few hard coded modifications were required to be able to run this configuration. More information there [XIOS](https://forge.ipsl.jussieu.fr/nemo/chrome/site/doc/NEMO/guide/html/install.html#extract-and-install-xios).
 
