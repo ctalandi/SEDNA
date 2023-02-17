@@ -1,0 +1,11 @@
+
+Mon Nov 22 11:06:27 CET 2021
+Currently Loaded Modulefiles:
+ 1) ccc/1.0(default)                9) feature/mkl/single_node                      17) .tuning/openmpi/4.0.5                    25) sharp/2.1                         33) nco/4.9.1(default)       
+ 2) flavor/buildcompiler/intel/19  10) feature/mkl/vector/avx2(default)             18) flavor/libccc_user/hwloc2                26) hcoll/4.5.3043                    34) cdo/1.9.5(default)       
+ 3) licsrv/intel                   11) mkl/19.0.5.281                               19) hwloc/2.2.0(default)                     27) mpi/openmpi/4.0.5(default)        35) udunits/2.2.20(default)  
+ 4) c/intel/19.0.5.281             12) intel/19.0.5.281                             20) pmix/3.1.5(default)                      28) flavor/hdf5/parallel              36) ncview/2.1.7(default)    
+ 5) c++/intel/19.0.5.281           13) flavor/buildmpi/openmpi/4.0                  21) flavor/ucx/standard(default)             29) hdf5/1.8.20(default)              37) DCM/4.0                  
+ 6) fortran/intel/19.0.5.281       14) feature/openmpi/mpi_compiler/intel(default)  22) ucx/1.9.0                                30) netcdf-c/4.6.0(default)           38) datadir/ra5563           
+ 7) feature/mkl/lp64               15) flavor/openmpi/standard(default)             23) flavor/hcoll/standard(default)           31) netcdf-fortran/4.4.4(default)     39) dfldatadir/ra5563        
+ 8) feature/mkl/sequential         16) feature/openmpi/net/auto(default)            24) feature/hcoll/multicast/enable(default)  32) feature/bridge/heterogenous_mpmd  

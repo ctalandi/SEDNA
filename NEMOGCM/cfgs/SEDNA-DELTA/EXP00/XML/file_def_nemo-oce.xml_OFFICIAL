@@ -1,0 +1,300 @@
+<!--
+============================================================================================================
+=                                           output files definition                                        =
+=                                            Define your own filesfor ocean dynamics context               =
+=                                         put the variables you want...                                    =
+============================================================================================================
+    -->
+   
+    <file_definition type="multiple_file" name="<OUTDIR>/@expname@_@freq@" sync_freq="1d" min_digits="4" >
+    
+      <!--  ############################    DAILY MEANS   ############################   -->
+      <!--  ############################    DAILY MEANS   ############################   -->
+      <!--  ############################    DAILY MEANS   ############################   -->
+      <!--  ############################    DAILY MEANS   ############################   -->
+
+    <file_group id="1d" output_freq="1d" split_freq="1d" output_level="10" enabled=".TRUE."  >  <!-- 1m files -->   
+
+	<!-- ########    Scalars    ########  -->
+        <file id="file1" name_suffix="_OCE_scalar" description="scalar variables" split_freq="1mo" type="one_file" >
+              <field field_ref="sshtot"        name="sshtot"       long_name="global mean ssh"               />
+              <field field_ref="voltot"        name="voltot"       long_name="global total volume"           />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<!-- ########    T-GRID    ########  -->
+	<file id="file10" name_suffix="_gridT" description="ocean T grid variables" >
+              <field field_ref="toce"         name="votemper"       long_name="temperature"                                       />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<file id="file11" name_suffix="_gridS" description="ocean T grid variables" >
+              <field field_ref="soce"         name="vosaline"       long_name="salinity"                                          />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<file id="file12" name_suffix="_gridD" description="ocean T grid variables" >
+              <field field_ref="rhop"         name="rhop_sig0"      long_name="potential density (sigma0)"                        />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<file id="file13" name_suffix="_gridT-2D" description="ocean T grid variables"  split_freq="1mo" >
+              <field field_ref="ssh"          name="ssh"            long_name="sea surface height"                                />
+              <field field_ref="samldkz5"     name="samldkz5"       long_name="Turbocline depth (Kz = 5e-4)"                      />
+              <field field_ref="samldr10_1"   name="samldr1_1"      long_name="Mixed Layer Depth (dsigma = 0.01 wrt 1m)"           />
+              <field field_ref="botpres"      name="botpres"        long_name="Sea Water Pressure at Sea Floor"                   />
+              <field field_ref="taubot"       name="taubot"         long_name="bottom stress module"                              />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<file id="file14" name_suffix="_CFL-2D" description="ocean CFL "  split_freq="1mo" >
+              <field field_ref="cfl_cu_max"      freq_op="1ts"   />
+              <field field_ref="cfl_cv_max"      freq_op="1ts"   />
+              <field field_ref="cfl_cw_max"      freq_op="1ts"   />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<!-- ########    U-GRID    ########  -->
+	<file id="file20" name_suffix="_gridU" description="ocean U grid variables" >
+              <field field_ref="uoce"           name="vozocrtx"       long_name="ocean current along i-axis"   />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<file id="file21" name_suffix="_gridU-2D" description="ocean U grid variables"  split_freq="1mo" >
+              <field field_ref="utau"           name="sozotaux"       long_name="Wind Stress along i-axis"     />
+              <field field_ref="utau_iceoce"    name="utau_iceoce"    long_name="ice_ocean_downward_x_stress"  />
+              <field field_ref="uwspd10"        name="uwspd10"        long_name="U wind speed at 10m"          />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+	
+	<!-- ########    V-GRID    ########  -->
+	<file id="file30" name_suffix="_gridV" description="ocean V grid variables" >
+              <field field_ref="voce"           name="vomecrty"       long_name="ocean current along j-axis"   /> 
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<file id="file31" name_suffix="_gridV-2D" description="ocean V grid variables"  split_freq="1mo" >
+              <field field_ref="vtau"           name="sometauy"       long_name="Wind Stress along j-axis"     /> 
+              <field field_ref="vtau_iceoce"    name="vtau_iceoce"    long_name="ice_ocean_downward_y_stress"  />
+              <field field_ref="vwspd10"        name="vwspd10"        long_name="V wind speed at 10m"          />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+	
+	<!-- ########    W-GRID    ########  -->
+	<file id="file40" name_suffix="_gridW" description="ocean W grid variables" >
+              <field field_ref="woce"         name="vovecrtz"       long_name="ocean vertical velocity"         />
+                  
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1d       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<!-- ########    FLXT-GRID    ########  -->
+      <file id="file50" name_suffix="_flxT" description="surface fluxes variables"  split_freq="1mo" > <!-- time step automaticaly defined based on nn_fsbc -->
+            <field field_ref="empmr"        name="empmr"      long_name="Net Upward Water Flux"                     />
+            <field field_ref="emp_oce"      name="emp_oce"    long_name="Evap minus Precip over ocean"                  />
+            <field field_ref="emp_ice"      name="emp_ice"    long_name="Evap minus Precip over ice"                    />
+            <field field_ref="fmmflx"       name="fmmflx"     long_name="Water flux due to freezing/melting"            />
+            <field field_ref="snowpre"      name="snowpre"    long_name="Snow precipitation"                            />
+            <field field_ref="runoffs"      name="runoffs"    long_name="River Runoffs"                                 />
+            <field field_ref="precip"       name="precip"     long_name="Total precipitation"                           />
+
+	    <field field_ref="qt"           name="qt"         long_name="Net Downward Heat Flux"                        />
+            <field field_ref="qns"          name="nshfls"     long_name="non solar Downward Heat Flux"        level="1" />
+            <field field_ref="qsr"          name="rsntds"     long_name="Shortwave Radiation"                 level="1" />
+            <field field_ref="erp"          name="wfcorr"     long_name="Surface Water Flux: Damping"         level="1" />
+            <field field_ref="taum"         name="taum"       long_name="wind stress module"                            />
+            <field field_ref="wspd"         name="windsp"     long_name="wind speed module"                             />
+
+	    <!-- surface heat fluxes -->
+            <field field_ref="qt_oce"        name="qt_oce"     long_name="Total flux at ocean surface"                  />
+
+            <variable name="start_date"       type="int"><NDATE0>    </variable>
+            <variable name="output_frequency" type="string">1d       </variable>
+            <variable name="CONFIG"           type="string"><CONFIG> </variable>
+            <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+      </file_group>
+
+
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+
+    <file_group id="1m" output_freq="1mo" split_freq="1mo" output_level="10" enabled=".TRUE."  >  <!-- 1m files -->   
+
+	<!-- ########    Scalars    ########  -->
+        <file id="file2" name_suffix="_OCE_scalar" description="scalar variables" type="one_file" >
+              <field field_ref="sshtot"        name="sshtot"       long_name="global mean ssh"               />
+              <field field_ref="voltot"        name="voltot"       long_name="global total volume"           />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<!-- ########    T-GRID    ########  -->
+	<file id="file15" name_suffix="_gridT" description="ocean T grid variables" >
+              <field field_ref="toce"         name="votemper"       long_name="temperature"                                       />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<file id="file16" name_suffix="_gridS" description="ocean T grid variables" >
+              <field field_ref="soce"         name="vosaline"       long_name="salinity"                                          />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<file id="file17" name_suffix="_gridD" description="ocean T grid variables" >
+              <field field_ref="rhop"         name="rhop_sig0"      long_name="potential density (sigma0)"                        />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<file id="file18" name_suffix="_gridT-2D" description="ocean T grid variables" >
+              <field field_ref="ssh"          name="ssh"            long_name="sea surface height"                                />
+              <field field_ref="samldkz5"     name="samldkz5"       long_name="Turbocline depth (Kz = 5e-4)"                      />
+              <field field_ref="samldr10_1"   name="samldr1_1"      long_name="Mixed Layer Depth (dsigma = 0.01 wrt 1m)"          />
+              <field field_ref="botpres"      name="botpres"        long_name="Sea Water Pressure at Sea Floor"                   />
+              <field field_ref="taubot"       name="taubot"         long_name="bottom stress module"                              />
+       	
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+       	</file>
+
+	<!-- ########    U-GRID    ########  -->
+	<file id="file22" name_suffix="_gridU" description="ocean U grid variables" >
+              <field field_ref="uoce"           name="vozocrtx"       long_name="ocean current along i-axis"   />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<file id="file23" name_suffix="_gridU-2D" description="ocean U grid variables" >
+              <field field_ref="utau"           name="sozotaux"       long_name="Wind Stress along i-axis"     />
+              <field field_ref="uwspd10"        name="uwspd10"        long_name="U wind speed at 10m"          />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+	
+	<!-- ########    V-GRID    ########  -->
+	<file id="file32" name_suffix="_gridV" description="ocean V grid variables" >
+              <field field_ref="voce"           name="vomecrty"       long_name="ocean current along j-axis"   /> 
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<file id="file33" name_suffix="_gridV-2D" description="ocean V grid variables" >
+              <field field_ref="vtau"           name="sometauy"       long_name="Wind Stress along j-axis"     /> 
+              <field field_ref="vwspd10"        name="vwspd10"        long_name="V wind speed at 10m"          />
+
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+	
+	<!-- ########    W-GRID    ########  -->
+	<file id="file41" name_suffix="_gridW" description="ocean W grid variables" >
+              <field field_ref="woce"         name="vovecrtz"       long_name="ocean vertical velocity"         />
+                  
+              <variable name="start_date"       type="int"><NDATE0>    </variable>
+              <variable name="output_frequency" type="string">1m       </variable>
+              <variable name="CONFIG"           type="string"><CONFIG> </variable>
+              <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+	<!-- ########    FLXT-GRID    ########  -->
+      <file id="file51" name_suffix="_flxT" description="surface fluxes variables" > <!-- time step automaticaly defined based on nn_fsbc -->
+            <field field_ref="empmr"        name="empmr"      long_name="Net Upward Water Flux"                         />
+            <field field_ref="emp_oce"      name="emp_oce"    long_name="Evap minus Precip over ocean"                  />
+            <field field_ref="emp_ice"      name="emp_ice"    long_name="Evap minus Precip over ice"                    />
+            <field field_ref="fmmflx"       name="fmmflx"     long_name="Water flux due to freezing/melting"            />
+            <field field_ref="snowpre"      name="snowpre"    long_name="Snow precipitation"                            />
+            <field field_ref="runoffs"      name="runoffs"    long_name="River Runoffs"                                 />
+            <field field_ref="precip"       name="precip"     long_name="Total precipitation"                           />
+
+	    <field field_ref="qt"           name="qt"         long_name="Net Downward Heat Flux"                        />
+            <field field_ref="qns"          name="nshfls"     long_name="non solar Downward Heat Flux"        level="1" />
+            <field field_ref="qsr"          name="rsntds"     long_name="Shortwave Radiation"                 level="1" />
+            <field field_ref="erp"          name="wfcorr"     long_name="Surface Water Flux: Damping"         level="1" />
+            <field field_ref="taum"         name="taum"       long_name="wind stress module"                            />
+            <field field_ref="wspd"         name="windsp"     long_name="wind speed module"                             />
+
+	    <!-- surface heat fluxes -->
+            <field field_ref="qt_oce"        name="qt_oce"     long_name="Total flux at ocean surface"                  />
+
+            <variable name="start_date"       type="int"><NDATE0>    </variable>
+            <variable name="output_frequency" type="string">1m       </variable>
+            <variable name="CONFIG"           type="string"><CONFIG> </variable>
+            <variable name="CASE"             type="string"><CASE>   </variable>
+        </file>
+
+
+      </file_group>
+
+   </file_definition>

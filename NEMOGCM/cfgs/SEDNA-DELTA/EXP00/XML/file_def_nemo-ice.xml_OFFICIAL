@@ -1,0 +1,150 @@
+ <!--
+============================================================================================================
+=                                           output files definition                                        =
+=                                      Define your own files for sea ice                                   =
+=                                         put the variables you want...                                    =
+============================================================================================================
+ -->
+    
+<file_definition type="multiple_file" name="<OUTDIR>/@expname@_@freq@" sync_freq="1d" min_digits="4" >
+
+      <!--  ############################    DAILY MEANS   ############################   -->
+      <!--  ############################    DAILY MEANS   ############################   -->
+      <!--  ############################    DAILY MEANS   ############################   -->
+      <!--  ############################    DAILY MEANS   ############################   -->
+   
+ <file_group id="1d" output_freq="1d" split_freq="1d" output_level="10" enabled=".TRUE." >  <!-- 1m files -->  
+
+     <!-- ########    ICEMOD-GRID    ########  -->
+     <file id="file60" name_suffix="_icemod" description="ice variables"  >
+           <!-- general -->
+           <field field_ref="icevolu"          name="sivolu"     long_name="ice volume"          />
+           <field field_ref="snwvolu"          name="snvolu"     long_name="snow volume"         />
+           <field field_ref="icesalt"          name="sisali"     long_name="Mean ice salinity"   />
+           <field field_ref="iceage"           name="siages"     long_name="Mean ice age"        />
+           <field field_ref="iceconc"          name="siconc"     long_name="ice concentration"   />
+           <field field_ref="icethic"          name="sithic"     long_name="Ice thickness"       />
+           <field field_ref="snwthic"          name="snthic"     long_name="Snow thickness"      />
+           <field field_ref="fasticepres"      name="fsticp"     long_name="Land fast ice time fraction"      />
+     
+           <!-- heat -->
+           <field field_ref="icetemp"          name="sitemp"     long_name="Mean ice temperature"  />
+     
+           <!-- momentum -->
+           <field field_ref="uice"             name="sivelu"     long_name="X-component of sea ice velocity" />             
+           <field field_ref="vice"             name="sivelv"     long_name="Y-component of sea ice velocity" />
+           <field field_ref="utau_ai"          name="utau_ai"    long_name="X-component of atmospheric stress on sea ice"  />
+           <field field_ref="vtau_ai"          name="vtau_ai"    long_name="Y-component of atmospheric stress on sea ice"  />
+           <field field_ref="utau_oi"          name="utau_oi"    long_name="X-component of ocean stress on sea ice"  />
+           <field field_ref="vtau_oi"          name="vtau_oi"    long_name="Y-component of ocean stress on sea ice"  />
+           <field field_ref="dssh_dx"          name="dssh_dx"    long_name="Sea-surface tilt term in force balance (x-component)"  />
+           <field field_ref="dssh_dy"          name="dssh_dy"    long_name="Sea-surface tilt term in force balance (y-component)"  />
+           <field field_ref="corstrx"          name="corstrx"    long_name="Coriolis force term in force balance (x-component)"    />
+           <field field_ref="corstry"          name="corstry"    long_name="Coriolis force term in force balance (y-component)"    />
+           <field field_ref="intstrx"          name="intstrx"    long_name="Internal stress term in force balance (x-component)"   />
+           <field field_ref="intstry"          name="intstry"    long_name="Internal stress term in force balance (y-component)"   />
+     
+           <!-- rheology -->
+           <field field_ref="icevel"           name="sivelo"     long_name="ice velocity"   />
+
+	  <!-- surface heat fluxes -->
+          <field field_ref="qt_ice"       name="qt_ice"          long_name="total heat flux at ice surface"                                  />
+          <field field_ref="qtr_ice_bot"  name="qtr_ice_bot"     long_name="solar heat flux transmitted through the ice (to the ocean)"      />
+          <field field_ref="qtr_ice_top"  name="qtr_ice_top"     long_name="solar heat flux transmitted through the ice surface"             />
+          <field field_ref="qt_oce_ai"    name="qt_oce_ai"       long_name="total heat flux at the ocean   surface: interface oce-(ice+atm)" />
+          <field field_ref="qt_atm_oi"    name="qt_atm_oi"       long_name="total heat flux at the oce-ice surface: interface atm-(ice+oce)" />
+                                                            
+          <field field_ref="sfxice"       name="sfxice"          long_name="ice-ocean salt flux from ice growth/melt (neg = growth)"         />
+          <field field_ref="sfxopw"       name="sfxopw"          long_name="ice-ocean salt flux from ice formation in open water"            />
+               
+           <variable name="start_date"       type="int"><NDATE0>    </variable>
+           <variable name="output_frequency" type="string">1d       </variable>
+           <variable name="CONFIG"           type="string"><CONFIG> </variable>
+           <variable name="CASE"             type="string"><CASE>   </variable>
+     </file>
+
+	<!-- scalar variables -->
+     <file id="file61" name_suffix="_ICE_scalar" description="ice variables"  split_freq="1mo"  type="one_file" >
+          <field field_ref="NH_iceextt"   name="NH_iceextt"      long_name="Sea ice extent North"  />
+          <field field_ref="NH_icevolu"   name="NH_icevolu"      long_name="Sea ice volume North"  />
+          <field field_ref="NH_icearea"   name="NH_icearea"      long_name="Sea ice area North"    />
+
+           <variable name="start_date"       type="int"><NDATE0>    </variable>
+           <variable name="output_frequency" type="string">1d       </variable>
+           <variable name="CONFIG"           type="string"><CONFIG> </variable>
+           <variable name="CASE"             type="string"><CASE>   </variable>
+     </file>
+
+   </file_group>
+
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+      <!--  ############################    MONTHLY MEANS   ############################   -->
+   
+ <file_group id="1m" output_freq="1mo" split_freq="1mo" output_level="10" enabled=".TRUE." >  <!-- 1m files -->  
+
+     <!-- ########    ICEMOD-GRID    ########  -->
+     <file id="file62" name_suffix="_icemod" description="ice variables"  >
+           <!-- general -->
+           <field field_ref="icevolu"          name="sivolu"     long_name="ice volume"          />
+           <field field_ref="snwvolu"          name="snvolu"     long_name="snow volume"         />
+           <field field_ref="icesalt"          name="sisali"     long_name="Mean ice salinity"   />
+           <field field_ref="iceage"           name="siages"     long_name="Mean ice age"        />
+           <field field_ref="iceconc"          name="siconc"     long_name="ice concentration"   />
+           <field field_ref="icethic"          name="sithic"     long_name="Ice thickness"       />
+           <field field_ref="snwthic"          name="snthic"     long_name="Snow thickness"      />
+           <field field_ref="fasticepres"      name="fsticp"     long_name="Land fast ice time fraction"      />
+     
+           <!-- heat -->
+           <field field_ref="icetemp"          name="sitemp"     long_name="Mean ice temperature"  />
+     
+           <!-- momentum -->
+           <field field_ref="uice"             name="sivelu"     long_name="X-component of sea ice velocity" />             
+           <field field_ref="vice"             name="sivelv"     long_name="Y-component of sea ice velocity" />
+           <field field_ref="utau_ai"          name="utau_ai"    long_name="X-component of atmospheric stress on sea ice"  />
+           <field field_ref="vtau_ai"          name="vtau_ai"    long_name="Y-component of atmospheric stress on sea ice"  />
+           <field field_ref="utau_oi"          name="utau_oi"    long_name="X-component of ocean stress on sea ice"  />
+           <field field_ref="vtau_oi"          name="vtau_oi"    long_name="Y-component of ocean stress on sea ice"  />
+           <field field_ref="dssh_dx"          name="dssh_dx"    long_name="Sea-surface tilt term in force balance (x-component)"  />
+           <field field_ref="dssh_dy"          name="dssh_dy"    long_name="Sea-surface tilt term in force balance (y-component)"  />
+           <field field_ref="corstrx"          name="corstrx"    long_name="Coriolis force term in force balance (x-component)"    />
+           <field field_ref="corstry"          name="corstry"    long_name="Coriolis force term in force balance (y-component)"    />
+           <field field_ref="intstrx"          name="intstrx"    long_name="Internal stress term in force balance (x-component)"   />
+           <field field_ref="intstry"          name="intstry"    long_name="Internal stress term in force balance (y-component)"   />
+     
+           <!-- rheology -->
+           <field field_ref="icevel"           name="sivelo"     long_name="ice velocity"   />
+
+	  <!-- surface heat fluxes -->
+          <field field_ref="qt_ice"       name="qt_ice"          long_name="total heat flux at ice surface"                                  />
+          <field field_ref="qtr_ice_bot"  name="qtr_ice_bot"     long_name="solar heat flux transmitted through the ice (to the ocean)"      />
+          <field field_ref="qtr_ice_top"  name="qtr_ice_top"     long_name="solar heat flux transmitted through the ice surface"             />
+          <field field_ref="qt_oce_ai"    name="qt_oce_ai"       long_name="total heat flux at the ocean   surface: interface oce-(ice+atm)" />
+          <field field_ref="qt_atm_oi"    name="qt_atm_oi"       long_name="total heat flux at the oce-ice surface: interface atm-(ice+oce)" />
+                                                            
+          <field field_ref="sfxice"       name="sfxice"          long_name="ice-ocean salt flux from ice growth/melt (neg = growth)"         />
+          <field field_ref="sfxopw"       name="sfxopw"          long_name="ice-ocean salt flux from ice formation in open water"            />
+               
+           <variable name="start_date"       type="int"><NDATE0>    </variable>
+           <variable name="output_frequency" type="string">1m       </variable>
+           <variable name="CONFIG"           type="string"><CONFIG> </variable>
+           <variable name="CASE"             type="string"><CASE>   </variable>
+     </file>
+
+	<!-- scalar variables -->
+     <file id="file63" name_suffix="_ICE_scalar" description="ice variables"  type="one_file" >
+          <field field_ref="NH_iceextt"   name="NH_iceextt"      long_name="Sea ice extent North"  />
+          <field field_ref="NH_icevolu"   name="NH_icevolu"      long_name="Sea ice volume North"  />
+          <field field_ref="NH_icearea"   name="NH_icearea"      long_name="Sea ice area North"    />
+               
+           <variable name="start_date"       type="int"><NDATE0>    </variable>
+           <variable name="output_frequency" type="string">1m       </variable>
+           <variable name="CONFIG"           type="string"><CONFIG> </variable>
+           <variable name="CASE"             type="string"><CASE>   </variable>
+     </file>
+
+   </file_group>
+   
+ </file_definition>
+ 
