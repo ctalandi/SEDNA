@@ -1,16 +1,17 @@
 # SEDNA-DELTA <br>
 This reprository hold : <br>
-  1. the NEMO code source (how to download it) as associated input files as well (code related input files hereafter namelists) and <br>
-  2. the list of other input files to describe the grid, the bathymetry and the surface forcing used to perform the numerical experiment called SEDNA-DELTA. <br>
+  1. the NEMO code source version used (how to download it) as the specific code changes for SEDNA as well and specific input files (NEMO related input files hereafter namelists) and <br>
+  2. an exhaustive list of other input files among which: the horizontal/vertical grid, the bathymetry and the surface forcing used to perform the numerical experiment called SEDNA-DELTA. <br>
 
 ## OVERVIEW
 This SEDNA configuration has been developped within the ImMEDIAT project (French ANR funding). The project main purpose is to understand the role of ocean and sea ice small scale features in the Arctic. 
-The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numerical plateform; it uses both [NEMO-OCE](https://doi.org/10.5281/zenodo.1464816) and [NEMO-SI3](https://doi.org/10.5281/zenodo.1471689) models for the ocean and the sea ice components respectively. It aims at simulating the ocean/sea-ice dynamics over the north Atlantic ocean (from ~54°N), the Greenland-Iceland-Norway seas and the whole Arctic basin with a limit along the Bering strait. The SEDNA-DELTA experiment required more than 35 Mhours of computing ressources attributed after a Peer Review Process by the [PRACE](https://prace-ri.eu) consortium (funding from the EU’s Horizon 2020 Research and Innovation Programme) for one year. The run has been performed on the the Joliot-Curie HPC computer hosted by the [TGCC](https://www-hpc.cea.fr/en/TGCC.html).<br>
-* The horizontal grid is a 1/60 degree i.e. from ~1km at the southern limit down to ~800m in most of the Arctic basin. The grid domain has more than 6 billion grid points.
-* A 150 vertical levels from 1m close to the surface up to 100m at the ocean bottom.
-* The model time step is ∆t=40s.
-* The period simulated covers the range 2009-2015 (7-year long).
-* A total of 17404 CPUs have been mobilised for the simulation with respectively 16860 CPUs for NEMO and 544 CPUs dedicated to XIOS servers.
+The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numerical plateform; it uses both [NEMO-OCE](https://doi.org/10.5281/zenodo.1464816) and [NEMO-SI3](https://doi.org/10.5281/zenodo.1471689) models for the ocean and the sea ice components respectively. It aims at simulating the ocean/sea-ice dynamics over the north Atlantic ocean (from ~54°N), the Greenland-Iceland-Norway seas and the whole Arctic basin with a limit along the Bering strait. The SEDNA-DELTA experiment required more than 35 Mhours of computing ressources attributed after a Peer Review Process by the [PRACE](https://prace-ri.eu) consortium (funding from the EU’s Horizon 2020 Research and Innovation Programme) for one year. The run has been performed on the Joliot-Curie HPC computer hosted by the [TGCC](https://www-hpc.cea.fr/en/TGCC.html).<br>
+* Main technical aspects hereafter:  
+** The horizontal grid is a 1/60 degree i.e. from ~1km at the southern limit down to ~800m in most of the Arctic basin. The grid domain has more than 6 billion grid points.<br>
+** A 150 vertical levels from 1m close to the surface up to 100m at the ocean bottom.<br>
+** The model time step is ∆t=40s. <br>
+** The SEDNA-DELTA experiment covers the range 2009-2015 and has been forced with the [ERA5](10.24381/cds.adbb2d47) data set.<br>
+** A total of 17404 CPUs have been mobilised for the simulation with respectively 16860 CPUs for NEMO and 544 CPUs dedicated to XIOS servers.<br>
 
 ### SOURCE CODE : 
    * The ocean/sea ice model: <br>
@@ -22,7 +23,7 @@ The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numer
 ### INPUT FILES :
 1 - Time invariant input files:
    * Domain configuration: <br>
-	** Description: This domain file gathers the horizontal & vertical grids, the bathymetry relies on ETOPO1 data set (http://dx.doi.org/10.7289/V5C8276M) as the grid points geographical location as well of the configuration. This new 1/60 grid has been built from a global ORCA 1/60 that has been built starting from a global ORCA 1/12 grid.<br>
+	** Description: This domain file gathers the horizontal & vertical grids, the bathymetry relies on [ETOPO1](http://dx.doi.org/10.7289/V5C8276M) data set as the grid points geographical location as well of the configuration. This new 1/60 grid has been built from a global ORCA 1/60 that has been built starting from a global ORCA 1/12 grid.<br>
 	** File name: ```SEDNA_Domain_cfg_Tgt_20210820_tsh10m_L1.nc```<br>
    * Ocean initialisation: <br>
 	** Description: World Ocean Atlas 2009 at 1°x1° climatology <br>
@@ -39,7 +40,7 @@ The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numer
 
 2 - Time varying input files:
    * Surface forcing:<br>
-	** Description: The atmospheric forcing data set [ERA5](https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5), with ```CORE bulk formulae``` (from NCAR) and relative winds (ocean surface velocity components taken into account for the wind stress<br>
+	** Description: The atmospheric forcing data set [ERA5](10.24381/cds.adbb2d47), with ```CORE bulk formulae``` (from NCAR) and relative winds (ocean surface velocity components taken into account for the wind stress<br>
 	** File name: ```ERA5_<var>_drwnd.nc``` <var> stands for either u10,v10,msdwswrf,msdwlwrf,mtpr,msr,msl,t2,q2.<br>
 	** Frequency: hourly for all fields <br>
    * Rivers and Greenland melting fluxes: <br>
@@ -47,7 +48,7 @@ The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numer
 	** File name: ```SEDNA_runoff_monthly_combined_Dai_Trenberth_Bamber_Z.nc``<br>
 	** Frequency: monthly<br>
    * Open boundaries:<br>
-	** Description: 3 open boundaries conditions limit the regional domain, about 45°N in the North Atlantic, along the Bering strait and at the Baltic sea output. Daily data from the CMEMS GLORYS12V1 re-analysis have been used [DOI] (https://doi.org/10.48670/moi-00021).<br>
+	** Description: 3 open boundaries conditions limit the regional domain, about 45°N in the North Atlantic, along the Bering strait and at the Baltic sea output. Daily data from the CMEMS [GLORYS12V1](https://doi.org/10.48670/moi-00021) re-analysis have been used.<br>
 	** File name: ```GLORYS12V1-SEDNA_ATLSPG.1d_<var>.nc``` and ```GLORYS12V1-SEDNA_BERING.1d_<var>.nc```. <var> stands for grid2D, U, V, T, S and icemod for the Bering open boundary<br>
 	** Frequency: daily <br>
    * World Ocean Atlas 2009 surface salinity:<br>
