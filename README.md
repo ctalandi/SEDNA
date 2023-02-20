@@ -9,6 +9,8 @@ The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numer
 ** The SEDNA-DELTA experiment covers the range 2009-2015 and has been forced with the [ERA5](10.24381/cds.adbb2d47) data set.<br>
 ** A total of 17404 CPUs have been mobilised for the simulation with respectively 16860 CPUs for NEMO and 544 CPUs dedicated to XIOS servers.<br>
 
+<p align="center"> <img src="./figs/SEDNA_Xif_z181m.jpg" width="700" height="600"> </p>
+
 ## SEDNA-DELTA <br>
 This reprository hold : <br>
   1. the NEMO code source version used (how to download it) as the specific code changes for SEDNA as well and specific input files (NEMO related input files hereafter namelists) and <br>
