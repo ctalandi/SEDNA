@@ -26,7 +26,7 @@ The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numer
 	** Description: This domain file gathers the horizontal & vertical grids, the bathymetry relies on [ETOPO1](http://dx.doi.org/10.7289/V5C8276M) data set as the grid points geographical location as well of the configuration. This new 1/60 grid has been built from a global ORCA 1/60 that has been built starting from a global ORCA 1/12 grid.<br>
 	** File name: ```SEDNA_Domain_cfg_Tgt_20210820_tsh10m_L1.nc```<br>
    * Ocean initialisation: <br>
-	** Description: World Ocean Atlas 2009 at 1°x1° climatology <br>
+	** Description: [World Ocean Atlas 2009](https://accession.nodc.noaa.gov/0094866) at 1°x1° climatology <br>
 	** File name:```woa09_temperature_monthly_1deg_t_an_CMA_drowned.nc, woa09_salinity_monthly_1deg_s_an_CMA_drowned.nc``` <br>
    * Ice initialisation:<br>
 	** Description: PIOMAS re-analysis data from January 2009 [Data server](https://pscfiles.apl.washington.edu/zhang/PIOMAS/data/v2.1/heff_txt/) [DOI](https://doi.org/10.1175/1520-0493(2003)131%3C0845:MGSIWA%3E2.0.CO;2)<br>
@@ -51,11 +51,11 @@ The SEDNA-DELTA experiment relies on the [NEMO](https://www.nemo-ocean.eu) numer
 	** Description: 3 open boundaries conditions limit the regional domain, about 45°N in the North Atlantic, along the Bering strait and at the Baltic sea output. Daily data from the CMEMS [GLORYS12V1](https://doi.org/10.48670/moi-00021) re-analysis have been used.<br>
 	** File name: ```GLORYS12V1-SEDNA_ATLSPG.1d_<var>.nc``` and ```GLORYS12V1-SEDNA_BERING.1d_<var>.nc```. <var> stands for grid2D, U, V, T, S and icemod for the Bering open boundary<br>
 	** Frequency: daily <br>
-   * World Ocean Atlas 2009 surface salinity:<br>
+   * [World Ocean Atlas 2009](https://accession.nodc.noaa.gov/0094866) surface salinity:<br>
 	** Description: Sea surface salinity restoring with a piston velocity of 167 mm/day ( 60 days/10 meters )<br>
 	** File name: ```woa09_sss01-12_monthly_1deg_s_an_CMA_drowned.nc``` and ```woa09_sst01-12_monthly_1deg_t_an_CMA_drowned.nc```<br>
 	** Frequency: monthly<br>
-   * World Ocean Atlas 2009 surface temperature:<br>
+   * [World Ocean Atlas 2009](https://accession.nodc.noaa.gov/0094866) surface temperature:<br>
 	** Description: to avoid SSS restoring where the SST climatology temperature is at the freezing point, i.e. in presence of sea-ice<br>
 	** File name: ```woa09_sst01-12_monthly_1deg_t_an_CMA_drowned.nc```<br>
 	** Frequency: monthly<br>
