@@ -17,8 +17,9 @@ Early March daily mean relative vorticity over Coriolis in the Beaufort Gyre at 
 
 ## SEDNA-DELTA <br>
 This reprository hold : <br>
-  1. the NEMO code source version used (how to download it) as the specific code changes for SEDNA as well and specific input files (NEMO related input files hereafter namelists) and <br>
-  2. an exhaustive list of other input files among which: the horizontal/vertical grid, the bathymetry and the surface forcing used to perform the numerical experiment called SEDNA-DELTA. <br>
+  1. the NEMO code source version used (how to download it) as the specific code changes for SEDNA as well 
+  2. the physics and numerics setup for both ocean and sea ice components in the namelists <br>
+  3. an exhaustive list of other input files among which: the horizontal/vertical grid, the bathymetry and the surface forcing used to perform the numerical experiment called SEDNA-DELTA. <br>
 
 ### SOURCE CODE : 
    * The ocean/sea ice model: <br>
